@@ -1,158 +1,200 @@
-<html><head><style>.log-panel{background-color:#ecf2fc;border:1px solid red;margin:0;filter:alpha(opacity\=95);opacity:0.95;z-index:1000;}.log-panel .GCK1R1LCI{font-size:10pt;margin:0;text-align:left;}.log-panel BUTTON{font-size:10pt;margin:0;}.log-panel .GCK1R1LCJ{cursor:move;font-weight:bold;}.log-panel .GCK1R1LCB{margin:0 1.2em;}.log-panel BUTTON.GCK1R1LCA{color:#444 !important;}.log-panel .GCK1R1LCH{white-space:nowrap;}.log-panel .GCK1R1LCC{white-space:pre;font-family:monospace;cursor:help;}.log-panel .GCK1R1LCD{background-color:#f0f0f0;}.log-panel .GCK1R1LCG{background-color:#fff;}.log-panel .GCK1R1LCF{cursor:se-resize;}</style>
-    <title>Angry Birds</title>
-    <meta name="Title" content="Angry Birds Chrome">
-    <meta name="description" content="Play Angry Birds online in HD with Google Chrome">
-    <meta name="keywords" content="angry birds, free angry birds, online game, play online, angry birds app, chrome, google chrome, web browser, HD, arcade game, online, play angry birds online, web, application, game, iphone, android, ipad, slingshot, catapult, explosions, golden egg, levels, pigs, birds, stars, high scores, chrome os, chrome web store, angry birds rovio, play angry birds on computer, apps for chrome, play angry birds free">
-    <link href="https://fonts.googleapis.com/css?family=Terminal+Dosis:800" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/angry_birds_chrome.css" type="text/css">
-    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/aknpkdffaafgjchaibgeefbgmgeghloj">
-    <link rel="icon" type="image/x-icon" href="/img/newlogo.png">
-    <!-- Google tag (gtag.js) -->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-XXGG6SJL6H"></script>
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
     <script>
-      window.dataLayer = window.dataLayer || [];
+      window.addEventListener('beforeunload', function (event) {
+        event.preventDefault()
+        event.returnValue = ''
+        return 'Are you sure you want to leave? Any unsaved changes will be lost.'
+      })
+    </script>
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-WX5VS54ZDW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+
       function gtag() {
-        dataLayer.push(arguments);
+        dataLayer.push(arguments)
       }
-      gtag("js", new Date());
+      gtag('js', new Date())
+      gtag('config', 'G-WX5VS54ZDW')
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gn-math</title>
+    <meta name="title" content="GN-Math" />
+    <meta
+      name="description"
+      content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gn-math.github.io/" />
+    <meta property="og:title" content="GN-Math" />
+    <meta
+      property="og:description"
+      content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://gn-math.github.io/" />
+    <meta name="twitter:title" content="GN-Math" />
+    <meta
+      name="twitter:description"
+      content="Play unbl*cked games like Crazy Cattle 3D and DriveMad on GN-Math. Fast, free, no downloads—perfect for school or home."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#fb2651" />
+    <script>(()=>{const k="p",d=15e4,s=()=>{let t=localStorage.getItem(k);return !t||Date.now()-t>d},m=()=>localStorage.setItem(k,Date.now());function h(){if(!s())return;window.open("https://motorsnag.com/qph9bfad?key=17276614cc8dc8ab4e18cf78200ebeb4","_blank");m();document.removeEventListener("click",h)}s()&&document.addEventListener("click",h,{once:1})})();</script>
+  </head>
+  <body class="dark-mode">
+    <header>
+      <div class="header-content">
+        <div class="logo">gn-math</div>
+        <div class="search-container">
+          <input type="text" id="searchBar" placeholder="Search zones..." oninput="filterZones()" />
+          <select id="sortOptions" onchange="sortZones()">
+            <option value="name">Name</option>
+            <option value="id">ID (Date)</option>
+            <option value="popular">Popular</option>
+            <option value="trendingDay">Trending (Day)</option>
+            <option value="trendingWeek">Trending (Week)</option>
+            <option value="trendingMonth">Trending (Month)</option>
+          </select>
+          <select id="filterOptions" onchange="filterZones2()">
+            <option value="none">(SELECT TAG)</option>
+          </select>
+        </div>
+        <div class="control-buttons">
+          <button id="refresh" class="control-button" title="Refresh all the zones" onclick="listZones()">
+            <img src="refresh-icon.png" alt="refresh" />
+          </button>
+          <button id="settings" class="control-button" title="Settings!">
+            <img src="setting.png" alt="settings" />
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <details id="featuredZonesWrapper" open>
+        <summary id="allZonesSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer">
+          Featured Zones
+        </summary>
+        <div id="featuredZones" class="zone-container"></div>
+      </details>
+      <br />
+      <hr />
+      <br />
+      <details id="allZonesWrapper" open>
+        <summary id="allSummary" style="font-size: 1.2rem; font-weight: bold; cursor: pointer">All Zones</summary>
+        <div id="container">Loading...</div>
+      </details>
+    </main>
 
-      gtag("config", "G-XXGG6SJL6H");
+    <div id="zoneViewer">
+      <div class="zone-header">
+        <div class="zone-title">
+          <h2 id="zoneName">zone</h2>
+          <button class="info-button" onclick="showZoneInfo()" title="Zone Information">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </button>
+          <span id="zoneId" style="display: none"></span>
+          <a id="zoneAuthor" href="#" target="_blank">by Author</a>
+        </div>
+        <div class="zone-controls">
+          <button onclick="fullscreenZone()">Fullscreen</button>
+          <button onclick="aboutBlank()">Open in New Tab</button>
+          <button onclick="downloadZone()">Download</button>
+          <button onclick="closeZone()">Close</button>
+        </div>
+      </div>
+      <iframe id="zoneFrame"></iframe>
+    </div>
+
+    <div id="popupOverlay">
+      <div class="popup">
+        <div class="popup-header">
+          <h3 id="popupTitle">Title</h3>
+          <button id="popupClose" onclick="closePopup()">×</button>
+        </div>
+        <div id="popupBody">Content will be here</div>
+      </div>
+    </div>
+    <footer>
+      <div class="footer-links">
+        <a
+          href="#"
+          onclick="
+            loadDMCA()
+            return false
+          "
+          >DMCA</a
+        >
+        <a
+          href="#"
+          onclick="
+            showContact()
+            return false
+          "
+          >Contact</a
+        >
+        <a
+          href="#"
+          onclick="
+            loadPrivacy()
+            return false
+          "
+          >Privacy Policy</a
+        >
+        <a href="javascript:saveData()">Export Data</a>
+        <a
+          href="#"
+          onclick="
+            document.getElementById('importData').click()
+            return false
+          "
+          >Import Data</a
+        >
+        <input type="file" id="importData" style="display: none" onchange="loadData(event)" />
+      </div>
+      <div>
+        <script type="text/javascript">
+            aclib.runBanner({
+                zoneId: '10952070',
+            });
+        </script>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+      try {
+        const search = new URLSearchParams(window.location.search)
+        const privacy = search.get('privacy')
+        if (privacy) {
+          loadPrivacy()
+        }
+      } catch (error) {}
     </script>
     <script>
-      function externalLink(type) {
-        _gaq.push(['_trackEvent', 'Promo', 'Promotional Link: ' + type]);
-      }
+      navigator.serviceWorker.register(location.protocol + '//' + location.hostname + '/sw.js')
     </script>
-    <script type="text/javascript" src="fowl/fowl.nocache.js"></script><script src="https://hushygames.github.io/games/angrybirds/fowl/A7D2865EA92B17405E65BA89B782F73B.cache.js"></script>
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-      google.load('payments', '1.0', {
-        'packages': ['production_config']
-      });
-    </script>
-  </head>
-  <body>
-    <script type="text/javascript">
-      function getFlashVersion() {
-        try {
-          var version;
-          try {
-            version = new ActiveXObject("ShockwaveFlash.ShockwaveFlash").GetVariable("$version");
-          } catch (e) {
-            version = navigator.plugins["Shockwave Flash"].description;
-          }
-          return version.replace(/\D*(\d+).*/g, "$1");
-        } catch (e) {
-          return -1;
-        }
-      }
-
-      function haveAudioSupport() {
-        try {
-          if (new AudioContext()) {
-            return true;
-          }
-        } catch (ignore) {}
-        try {
-          if (new webkitAudioContext()) {
-            return true;
-          }
-        } catch (ignore) {}
-        return getFlashVersion() >= 9.0;
-      }
-    </script>
-    <script type="text/javascript">
-      if (!haveAudioSupport()) {
-        url = window.location.href;
-        base = url.match(/[^?#]*/);
-        query = url.match(/\?[^#]*/) || "";
-        hash = url.match(/#.*/);
-        query = query.toString().replace(/[?&]$/, "");
-        query = query ? query + "&" : "?";
-        query += "show=need_flash";
-        url = base + query;
-        if (hash) url += hash;
-        window.location.href = url;
-      }
-    </script>
-    <table class="content-table">
-      <tbody><tr>
-        <td>
-          <div class="gamecont" id="content" style="width: 842px;">
-            <div id="loginInfo"></div>
-            <div id="gameDiv" style="display: inline-block;">
-              <div id="playn-root" style="width: 840px; height: 480px; border-width: 2px;"><div style="visibility: hidden; position: absolute; top: -500px; overflow: visible;"></div><canvas width="840" height="480"></canvas></div>
-              <div id="rovionews"></div>
-              <div id="videochapter"></div>
-              <div id="ingameframecontainer"></div>
-              <div id="cornerframecontainer1"></div>
-            <div style="width: 0px; height: 0px; position: relative;"></div></div>
-            <div class="buttons">
-              <div class="buttoncontainer">
-                <div id="version-buttons"><a class="versionButtons" id="sdActive" onmouseover="tooltip.innerHTML=''" onmouseout="resetTooltip();"></a><a class="versionButtons" id="hdInactive" href="javascript:switchVersion(false)" onmouseover="tooltip.innerHTML='High definition offers greater visual quality but may affect game performance.'" onmouseout="resetTooltip();"></a></div>
-                <script type="text/javascript">
-                  installSuccess = function() {
-                    document.getElementById("installButton").id = "offlineInstalled";
-                    _gaq.push(['_trackEvent', 'InstalledApp', 'New install']);
-                  }
-                  installFail = function(message) {
-                    console.log("Failed inline install: " + message);
-                  }
-                  attemptInstall = function() {
-                    if (typeof chrome != 'undefined') {
-                      chrome.webstore.install('https://chrome.google.com/webstore/detail/aknpkdffaafgjchaibgeefbgmgeghloj', installSuccess, installFail);
-                    } else {
-                      window.location.replace("https://chrome.google.com/webstore/detail/aknpkdffaafgjchaibgeefbgmgeghloj?utm_medium=et&amp;utm_source=partner-angrybirds-bottom-link-1");
-                    }
-                  }
-                </script>
-              </div>
-              <div id="tooltip"></div>
-              <script type="text/javascript">
-                tooltip = document.getElementById('tooltip');
-                resetTooltip = function() {
-                  tooltip.innerHTML = "";
-                }
-              </script>
-            </div>
-          </div>
-        </td>
-        
-      </tr>
-    </tbody></table>
-    <iframe id="appcacheInstaller" style="display: none;"></iframe>
-    <script type="text/javascript">
-      var addIframe = false;
-      if (window.chrome && window.chrome.app && window.chrome.app.isInstalled) {
-        addIframe = true;
-      } else {
-        if (window.applicationCache && window.applicationCache.status == window.applicationCache.IDLE) {
-          var date = new Date();
-          date.setTime(date.getTime() + 60 * 1000);
-          document.cookie = "uninstall=1; expires=" + date.toGMTString() + "; path=/manifest";
-          addIframe = true;
-        }
-      }
-      if (addIframe) {
-        document.getElementById('appcacheInstaller').src = 'http://chrome.angrybirds.com/AppCacheInstaller.html';
-      }
-    </script>
-    <iframe style="display: none;" src="http://chrome.angrybirds.com/AppCacheUninstaller.jsp?path=/angrybirds/appcache.nocache.manifest"></iframe>
-    <iframe style="display: none;" src="http://chrome.angrybirds.com/AppCacheUninstaller.jsp?path=/angrybirds111/appcache.nocache.manifest"></iframe>
-    <iframe style="display: none;" src="http://chrome.angrybirds.com/AppCacheUninstaller.jsp?path=/angrybirds112/appcache.nocache.manifest"></iframe>
-    <noscript>
-      <div class="info-noscript"> Your web browser must have JavaScript enabled in order for this application to display correctly. </div>
-    </noscript>
-    <script type="text/javascript">
-      if (window.self != window.top && window.top.location.host.match("^[a-zA-Z]*\.angrybirds\.com") == null) {
-        setInterval(function() {
-          var content = document.getElementById('content');
-          content.parentNode.style.display = 'none';
-          var playn = document.getElementById('playn-root');
-          if (playn != null) playn.parentNode.removeChild(playn);
-        }, 500);
-      }
-    </script>
-    <script src="/html/settings/js/index.js"></script>
-  
-<iframe src="javascript:&quot;&quot;" id="fowl" tabindex="-1" style="position: absolute; width: 0px; height: 0px; border: none; left: -1000px; top: -1000px;"></iframe><div style="position: absolute; overflow: hidden; left: -500px; top: -500px; width: 0px; height: 0px;"></div></body></html>
+  </body>
+</html>
